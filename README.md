@@ -1,11 +1,13 @@
-ReadMe:
-Project 5: Decision Tree
-A Decision Tree classifier is built.
+A Decision Tree classifier is built for predicting credit worthiness of applicants.
+Over fitting: The code prunes noisy data, it keeps track of the different set of values in the data and as soon as the count of positive and negative turns to become in the ratio of 1:9, the minority is considered as noise and return the majority.
+In case there is Missing Data in the query, we consider all possible attribute value that can go in place of the ‘?’, calculate the classification for each of them and return the majority( positive and negative)
 
-Overfitting: The code prunes noisy data, it keep track of the different set of values in the data and as soon as the count of positive and negative turns to become in the ratio of 1:9, we cosider this as noisy data and return.
-Missing Data is ignored in the training set, but in the query, we replace that row with all possible rows(replacing missing data with set of possible data). Calculate the classfication for each of them and return the majority.
+How to run: 
+There are three type of files:
+data.txt: This file contains the training data set.
+Testing.txt: The file contains testing data.
+Query.txt: The file contains data for query set.
+In the Main.py file: To test the accuracy over the training data.
+print QueryData.testTree() :To test the accuracy over the training data.
+QueryData.query(): To run a new query.
 
-
-
-Decision Tree class:
-This is the basic 
