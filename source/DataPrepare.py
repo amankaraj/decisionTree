@@ -16,6 +16,17 @@ def parseFile(fileAddress):
 
     return listRows
 
+def parseQueryFile(fileAddress):
+    fileData = open(fileAddress)
+    listRows = []
+    for line in fileData:
+        row = line.split(',')
+        row = cleanRow(row)
+        listRows.append(row)
+
+    return listRows
+
+
 def cleanRow(row):
 
     floatValuesInd = [1,2,7,10,13,14]

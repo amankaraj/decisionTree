@@ -1,7 +1,14 @@
 __author__ = 'Aman'
+'''
+Contain helper functions for the Build Tree method to calculate entropy.
+'''
 
 import math
 
+'''
+Calculate the count of positives in the total set of rows.
+Calculate entropy based on that data.
+'''
 def calculateEntropy(dataRows, indexPos):
 
     countPos = 0
@@ -19,6 +26,12 @@ def calculateEntropy(dataRows, indexPos):
 
     return entropy
 
+'''
+Function to calculate the Information Gain:
+Data Rows: The list of rows we need to consider for Information Gain
+ChkAtrPos: The index of attribute which we are considering for calculation of the current information gain
+evalPos: The index of the evaluation position. Classsifier.
+'''
 def informationGain(dataRows, chkAtrPos, evalPos):
 
     countDictionary = {}
@@ -44,7 +57,13 @@ def informationGain(dataRows, chkAtrPos, evalPos):
 
     return entropy
 
-import ParseData
+import DataPrepare
+'''
+Function to calculate the attribute with the maximum information gain.
+DataRows: List of data rows
+listValidAttr: List of valid attributes that can be considered as root for this subtree.
+EvalCol: Final Classifier columnn
+'''
 def maxInformationGain(dataRows, listValidAttr, evalColumn):
 
 
@@ -52,6 +71,7 @@ def maxInformationGain(dataRows, listValidAttr, evalColumn):
     maxAttr = 15
     for i in listValidAttr:
         localInfoGain = informationGain(dataRows,i,evalColumn)
+        print "localInfo gain: i:",i," ",localInfoGain
         if localInfoGain > maxInfoGain:
             maxAttr = i
             maxInfoGain = localInfoGain
@@ -59,6 +79,4 @@ def maxInformationGain(dataRows, listValidAttr, evalColumn):
 
     return maxAttr
 
-#dataRow = [['hot','+'],['hot','+'],['cold','-'],['cold','-'],['rain','-'],['rain','+']]
 
-#maxInformationGain(ParseData.parseFile("data.txt"),0,15)
